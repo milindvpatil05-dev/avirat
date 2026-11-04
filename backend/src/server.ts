@@ -6,8 +6,6 @@ import connectDB from "./config/db.ts";
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
-// 127.0.0.1
-//mongodb://localhost:27017
 connectDB()
 .then(() => {
   app.listen(PORT, () => {
