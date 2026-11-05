@@ -4,6 +4,7 @@
 # environment files
 **/.env
 **/.env.*
+!**/.env.example
 
 # build output
 **/dist/
