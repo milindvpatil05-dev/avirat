@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 
 export default function SignupPage() {
@@ -7,6 +8,7 @@ export default function SignupPage() {
     firstName: "",
     lastName: "",
     mobileNumber: "",
+    userName: "",
     emailId: "",
     password: "",
   });
@@ -72,23 +74,44 @@ export default function SignupPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
-            <label
-              htmlFor="mobileNumber"
-              className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
-            >
-              Mobile number
-            </label>
-            <input
-              id="mobileNumber"
-              name="mobileNumber"
-              type="tel"
-              required
-              value={formData.mobileNumber}
-              onChange={handleChange}
-              placeholder="+91 98765 43210"
-              className="h-11 rounded-lg border border-zinc-200 bg-white px-3 text-sm text-black outline-none transition-colors focus:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-zinc-500"
-            />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div className="flex flex-col gap-1.5">
+              <label
+                htmlFor="mobileNumber"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Mobile number
+              </label>
+              <input
+                id="mobileNumber"
+                name="mobileNumber"
+                type="tel"
+                required
+                value={formData.mobileNumber}
+                onChange={handleChange}
+                placeholder="+91 98765 43210"
+                className="h-11 rounded-lg border border-zinc-200 bg-white px-3 text-sm text-black outline-none transition-colors focus:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-zinc-500"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1.5">
+                <label
+                  htmlFor="userName"
+                  className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                >
+                  User name
+                </label>
+                <input
+                  id="userName"
+                  name="userName"
+                  type="text"
+                  required
+                  value={formData.userName}
+                  onChange={handleChange}
+                  placeholder="john_doe"
+                  className="h-11 rounded-lg border border-zinc-200 bg-white px-3 text-sm text-black outline-none transition-colors focus:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-zinc-500"
+                />
+            </div>
           </div>
 
           <div className="flex flex-col gap-1.5">
@@ -136,6 +159,16 @@ export default function SignupPage() {
           >
             Sign up
           </button>
+
+          <p className="text-center text-sm text-zinc-600 dark:text-zinc-400">
+            Don&apos;t have an account?{" "}
+            <Link
+              href="/login"
+              className="px-2 font-medium text-zinc-900 transition-colors hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-50 dark:hover:bg-zinc-800"
+            >
+              Sign in
+            </Link>
+          </p>
         </form>
       </main>
     </div>
